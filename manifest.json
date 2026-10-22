@@ -1,0 +1,21 @@
+{
+  "id": "./",
+  "name": "FND Companion",
+  "short_name": "FND Companion",
+  "description": "Sourced self-management exercises and a private symptom log for Functional Neurological Disorder.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f7f4ee",
+  "theme_color": "#2f6f6a",
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+    {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
+  ],
+  "shortcuts": [
+    {"name": "I feel one coming", "url": "./index.html#/sos", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]},
+    {"name": "Log a symptom", "url": "./index.html#/log", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]}
+  ]
+}
