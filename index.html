@@ -277,6 +277,89 @@ const LS = {
 const favs = () => LS.get('favs', []);
 const logs = () => LS.get('log', []);
 const contact = () => LS.get('contact', {name:'', phone:''});
+
+// ---------- emergency number by country ----------
+const EMERG = {
+  US:{name:'United States', num:'911'},
+  CA:{name:'Canada', num:'911'},
+  UK:{name:'United Kingdom', num:'999', alt:'112', note:'112 also works.'},
+  IE:{name:'Ireland', num:'112', alt:'999', note:'999 also works.'},
+  AU:{name:'Australia', num:'000', alt:'112', note:'112 also works from mobile phones.'},
+  NZ:{name:'New Zealand', num:'111'},
+  EU:{name:'Europe (EU countries)', num:'112'},
+  IN:{name:'India', num:'112'},
+  ZA:{name:'South Africa', num:'112', alt:'10177', note:'112 is for mobile phones. 10177 is the ambulance number.'},
+  OTHER:{name:'Other – I will type my own number'}
+};
+const EMERG_UNKNOWN = {name:'Not sure', num:'911', alt:'112', note:'911 is for the US and Canada. 112 works on most mobile phones worldwide.'};
+function guessCountry(){
+  let tz = '';
+  try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch(e){}
+  if (/^Australia\//.test(tz)) return 'AU';
+  if (/^(Pacific\/Auckland|Pacific\/Chatham|NZ)/.test(tz)) return 'NZ';
+  if (tz === 'Europe/London' || tz === 'Europe/Belfast') return 'UK';
+  if (tz === 'Europe/Dublin') return 'IE';
+  if (/^Asia\/(Kolkata|Calcutta)$/.test(tz)) return 'IN';
+  if (tz === 'Africa/Johannesburg') return 'ZA';
+  if (/^America\/(Toronto|Vancouver|Edmonton|Winnipeg|Halifax|St_Johns|Regina|Moncton|Montreal|Whitehorse|Yellowknife|Iqaluit|Glace_Bay|Goose_Bay|Swift_Current|Dawson_Creek|Fort_Nelson|Creston|Dawson|Inuvik|Rankin_Inlet|Resolute|Cambridge_Bay|Atikokan|Blanc-Sablon|Nipigon|Thunder_Bay|Rainy_River|Pangnirtung)$/.test(tz) || /^Canada\//.test(tz)) return 'CA';
+  if (/^America\/(New_York|Chicago|Denver|Phoenix|Los_Angeles|Anchorage|Juneau|Sitka|Metlakatla|Yakutat|Nome|Adak|Boise|Detroit|Menominee|Indiana\/.+|Kentucky\/.+|North_Dakota\/.+)$/.test(tz) || /^(US\/|Pacific\/Honolulu)/.test(tz)) return 'US';
+  const EU_TZ = /^Europe\/(Amsterdam|Athens|Berlin|Bratislava|Brussels|Bucharest|Budapest|Busingen|Copenhagen|Helsinki|Lisbon|Ljubljana|Luxembourg|Madrid|Malta|Mariehamn|Paris|Prague|Riga|Rome|Sofia|Stockholm|Tallinn|Vienna|Vilnius|Warsaw|Zagreb|Nicosia)$|^Asia\/(Nicosia|Famagusta)$|^Atlantic\/(Canary|Madeira|Azores)$/;
+  if (EU_TZ.test(tz)) return 'EU';
+  const langs = (navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || '']);
+  for (const l of langs){
+    const r = (String(l).split('-')[1] || '').toUpperCase();
+    if (r === 'GB') return 'UK';
+    if (['US','CA','IE','AU','NZ','IN','ZA'].includes(r)) return r;
+    if (['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE'].includes(r)) return 'EU';
+  }
+  return '';
+}
+// Returns {code, name, num, alt, note, guessed}
+function emergency(){
+  const saved = LS.get('emergency', null);
+  const code = saved ? saved.code : guessCountry();
+  if (code === 'OTHER'){
+    const n = String(saved && saved.custom || '').replace(/[^\d+*#]/g,'');
+    if (n) return {code, name:'Your own number', num:n};
+    return Object.assign({code, guessed:false}, EMERG_UNKNOWN);
+  }
+  const e = EMERG[code];
+  return e ? Object.assign({code, guessed:!saved}, e) : Object.assign({code:'', guessed:!saved}, EMERG_UNKNOWN);
+}
+function emergencyButtons(){
+  const e = emergency();
+  return `<a class="btn warm" href="tel:${esc(e.num)}">📞 Call ${esc(e.num)}</a>`
+    + (e.alt ? `<a class="btn ghost" style="margin-top:10px" href="tel:${esc(e.alt)}">📞 Or call ${esc(e.alt)}</a>` : '')
+    + (e.note ? `<p class="muted small" style="margin-top:8px">${esc(e.note)}</p>` : '');
+}
+function saveEmergency(){
+  const code = $('#ecountry').value;
+  const custom = $('#ecustom') ? $('#ecustom').value.trim() : '';
+  if (code === 'OTHER' && !custom.replace(/[^\d]/g,'')){ about(); toast('Type your emergency number, then tap Save'); return; }
+  LS.set('emergency', {code, custom: code === 'OTHER' ? custom : ''});
+  about(); toast('Saved ✓');
+}
+
+// ---------- local FND groups by country ----------
+const LOCAL = {
+  US:[['FND Hope – patient-led charity','https://fndhope.org/'],['FND Society – group for FND doctors, therapists and researchers','https://www.fndsociety.org/']],
+  CA:[['Healing Horizons for FND – free FND resources (Canada)','https://healinghorizonsfnd.ca/']],
+  UK:[['FND Action – patient-led charity &amp; support groups','https://www.fndaction.org.uk/'],['FND Hope UK','https://www.fndhope.org.uk/'],['FND Dimensions – charity run by people with FND','https://fnddimensions.org/']],
+  IE:[['FND Ireland','https://fnd.ie/']],
+  AU:[['FND Australia','https://fndaus.org.au/']],
+  NZ:[['FND Aotearoa (FNDA) – New Zealand support group','https://www.fnda.nz/']]
+};
+function localGroups(){
+  const mine = emergency().code;
+  const link = r => `<a class="ex" href="${r[1]}" target="_blank" rel="noopener"><span class="t">${r[0]}</span></a>`;
+  let h = '';
+  if (LOCAL[mine]) h += `<h3>FND groups in ${esc(EMERG[mine].name)}</h3>` + LOCAL[mine].map(link).join('');
+  const rest = Object.keys(LOCAL).filter(k => k !== mine);
+  h += `<details class="card" style="margin-top:12px"><summary><b>FND groups in other countries</b></summary>`
+    + rest.map(k => `<h3>${esc(EMERG[k].name)}</h3>` + LOCAL[k].map(link).join('')).join('')
+    + `</details>`;
+  return h;
+}
 const exById = id => EX.find(e => e.id === id);
 const catById = id => CATS.find(c => c.id === id);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -453,12 +536,12 @@ function others(){
     <li>Wait for it to settle. Part of me can often hear you, so speak calmly.</li>
     <li>Afterwards, encourage me to get back up and carry on if I can.</li>
   </ol>
-  <h3>Call 911 if:</h3>
+  <h3>Call ${esc(emergency().num)} (emergency) if:</h3>
   <p>I\u2019m injured, I have trouble breathing, it\u2019s very different from my usual episodes, or you\u2019re unsure.</p>
-  <a class="btn warm" href="tel:911">📞 Call 911</a>
+  ${emergencyButtons()}
   ${contact().phone ? `<a class="btn alt" style="margin-top:10px" href="tel:${esc(contact().phone)}">📞 Call ${esc(contact().name||'my contact')}</a>` : ''}
   </div>
-  <div class="src">Source: <a href="${SRC.seiz[1]}" target="_blank" rel="noopener">${SRC.seiz[0]}</a>. When to call 911 is general safety advice – follow any personal plan from your neurologist.</div>`;
+  <div class="src">Source: <a href="${SRC.seiz[1]}" target="_blank" rel="noopener">${SRC.seiz[0]}</a>. When to call for emergency help is general safety advice – follow any personal plan from your neurologist.</div>`;
 }
 
 function newTo(){
@@ -475,6 +558,7 @@ function newTo(){
   <a class="ex" href="https://fndhope.org/" target="_blank" rel="noopener"><span class="t">FND Hope – patient-led charity</span></a>
   <a class="ex" href="https://www.fndaction.org.uk/" target="_blank" rel="noopener"><span class="t">FND Action – patient-led charity &amp; support groups</span></a>
   <a class="ex" href="https://www.fndhope.org/wp-content/uploads/2023/04/Final-Print-FND-Hope-Patient-Booklet.pdf" target="_blank" rel="noopener"><span class="t">FND Hope patient booklet (PDF)</span></a>
+  ${localGroups()}
   <p class="disc">Questions about your diagnosis or treatment are best taken to your neurologist – it can help to bring a list.</p>`;
 }
 
@@ -580,17 +664,27 @@ function saved(){
 
 function about(){
   header('About & settings'); setTab('t-about');
-  const c = contact();
+  const c = contact(), em = emergency(), es = LS.get('emergency', {}) || {};
   app.innerHTML = `<div class="card"><h2 style="margin-top:0">Important</h2>
   <p>This app shares general information from FND specialists and charities. It is <b>not medical advice</b> and doesn\u2019t replace your care team.</p>
   <p>Please work with your neurologist or physiotherapist on which exercises suit you.</p>
-  <p><b>Seek urgent medical care (call 911)</b> for new, different or rapidly worsening symptoms, an injury, or if you\u2019re ever unsure.</p></div>
+  <p><b>Seek urgent medical care (call ${esc(emergency().num)})</b> for new, different or rapidly worsening symptoms, an injury, or if you\u2019re ever unsure.</p></div>
+  <div class="card"><h3 style="margin-top:0">Emergency number</h3>
+  <p>Your emergency number is <b>${esc(em.num)}</b>${em.alt ? ` (or ${esc(em.alt)})` : ''}.</p>
+  ${em.guessed ? `<p class="muted small">This was guessed from your phone\u2019s settings. If it is wrong, choose your country below and tap Save.</p>` : ''}
+  <label for="ecountry">Country</label>
+  <select id="ecountry" onchange="$('#ecustomwrap').style.display = this.value==='OTHER' ? '' : 'none'">
+    <option value="" ${em.code===''?'selected':''}>Not sure – 911 and 112</option>
+    ${Object.keys(EMERG).map(k => `<option value="${k}" ${em.code===k?'selected':''}>${esc(EMERG[k].name)}${EMERG[k].num?` – ${EMERG[k].num}`:''}</option>`).join('')}
+  </select>
+  <div id="ecustomwrap" style="${em.code==='OTHER'?'':'display:none'}"><label for="ecustom">Your emergency number</label><input id="ecustom" type="tel" inputmode="tel" value="${esc(es.custom||'')}" placeholder="e.g. 112"></div>
+  <button class="btn" style="margin-top:12px" onclick="saveEmergency()">Save</button></div>
   <div class="card"><h3 style="margin-top:0">Support person</h3>
   <p class="muted small">Adds “Text” and “Call” buttons to the grounding screen. Stored only on this phone.</p>
   <label for="cn">Name</label><input id="cn" value="${esc(c.name)}" placeholder="e.g. Mom">
   <label for="cp">Phone number</label><input id="cp" type="tel" inputmode="tel" value="${esc(c.phone)}" placeholder="e.g. 312 555 0123">
   <button class="btn" style="margin-top:12px" onclick="LS.set('contact',{name:$('#cn').value.trim(),phone:$('#cp').value.trim()});toast('Saved ✓')">Save</button></div>
-  <div class="card"><h3 style="margin-top:0">Your privacy</h3><p>Saved exercises, your symptom log and your support contact are kept only in this browser on this phone. Nothing is sent anywhere. Clearing browser data will erase them – export your log now and then.</p> <p><a href="privacy.html">Read the full privacy policy</a></p></div>
+  <div class="card"><h3 style="margin-top:0">Your privacy</h3><p>Saved exercises, your symptom log, your support contact and your emergency number are kept only in this browser on this phone. Nothing is sent anywhere. Clearing browser data will erase them – export your log now and then.</p> <p><a href="privacy.html">Read the full privacy policy</a></p></div>
   <div class="card"><h3 style="margin-top:0">Add to home screen</h3><p class="small"><b>Android (Chrome):</b> tap ⋮ menu → <i>Install app</i> or <i>Add to Home screen</i>.<br><b>iPhone (Safari):</b> tap Share → <i>Add to Home Screen</i>.</p></div>
   <div class="card"><h3 style="margin-top:0">Sources</h3><div class="src">${Object.values(SRC).map(s=>`<a href="${s[1]}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join('<br>')}</div></div>`;
 }
