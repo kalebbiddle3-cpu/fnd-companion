@@ -15,7 +15,7 @@
     {"src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}
   ],
   "shortcuts": [
-    {"name": "I feel one coming", "url": "./index.html#/sos", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]},
+    {"name": "I feel a seizure starting", "url": "./index.html#/sos", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]},
     {"name": "Log a symptom", "url": "./index.html#/log", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]}
   ]
 }

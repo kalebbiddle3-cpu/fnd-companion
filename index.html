@@ -118,32 +118,32 @@ const SRC = {
 };
 
 const CATS = [
-  {id:'tremor', name:'Tremor & shaking', icon:'〰️', primary:true, blurb:'Ways to interrupt the tremor rhythm, relax muscles and find stillness.'},
-  {id:'seizure', name:'Seizure warning signs', icon:'🛟', primary:true, blurb:'What to do when you feel an attack building – grounding, breathing, distraction.'},
-  {id:'gait', name:'Walking & balance', icon:'🚶', blurb:'Getting walking to feel automatic again.'},
-  {id:'weakness', name:'Limb weakness', icon:'💪', blurb:'Coaxing back natural, automatic movement.'},
-  {id:'fatigue', name:'Fatigue', icon:'🔋', blurb:'Pacing and avoiding boom-and-bust.'},
-  {id:'fog', name:'Brain fog & memory', icon:'☁️', blurb:'Attention, sleep and gentle confidence-building.'}
+  {id:'tremor', name:'Tremor & shaking', icon:'〰️', primary:true, blurb:'Ways to break the rhythm of the tremor, relax your muscles and help your body become still.'},
+  {id:'seizure', name:'Seizure warning signs', icon:'🛟', primary:true, blurb:'What to do when you notice warning signs that a seizure may start – grounding, breathing, distraction.'},
+  {id:'gait', name:'Walking & balance', icon:'🚶', blurb:'Exercises to help walking feel automatic again (so you do not have to think about each step).'},
+  {id:'weakness', name:'Limb weakness', icon:'💪', blurb:'Exercises to help a weak arm or leg move naturally again.'},
+  {id:'fatigue', name:'Fatigue', icon:'🔋', blurb:'Pacing: doing a steady amount each day, instead of doing too much on good days and then being exhausted afterwards.'},
+  {id:'fog', name:'Concentration & memory', icon:'☁️', blurb:'Help with attention, sleep, and feeling more confident about your memory (sometimes called brain fog).'}
 ];
 
 // mins = suggested timer length (0 = no timer)
 const EX = [
   // ---------- TREMOR ----------
-  {id:'conductor', cats:['tremor'], title:'Conduct the orchestra', mins:2, src:['trem','niel'],
-   why:'Making a big, deliberate movement "on top" of the tremor can take over its rhythm.',
-   steps:['Sit or stand somewhere comfortable.','With the shaking arm, start a big sweeping movement, like conducting an orchestra.','Gradually make the movements wider and slower.','Keep slowing down until you bring the arm to a gentle standstill.','Notice: did the tremor pause, even briefly? That is your brain re-learning control.'],
+  {id:'conductor', cats:['tremor'], title:'Big, slow arm movements', old:'Conduct the orchestra', mins:2, src:['trem','niel'],
+   why:'Making a big, deliberate movement at the same time as the tremor can replace the rhythm of the tremor.',
+   steps:['Sit or stand somewhere comfortable.','With the shaking arm, move your whole arm through the air in big, sweeping movements (like a music conductor waving their arm).','Gradually make the movements wider and slower.','Keep slowing down until you bring the arm to a gentle standstill.','Notice: did the tremor stop, even for a moment? If it did, your brain is learning to control the movement again.'],
    tip:'It may feel strange or not work at first. These skills take repeated practice – that\u2019s normal.'},
   {id:'rhythm', cats:['tremor'], title:'Copy a changing rhythm', mins:2, src:['trem','niel'],
-   why:'Following an outside rhythm with your other hand can "interfere" with the tremor rhythm (entrainment).',
+   why:'Copying a different rhythm with your other hand can change or stop the rhythm of the tremor. This is called entrainment.',
    steps:['Ask a friend to tap a steady rhythm on a table (or use music with a clear beat).','Copy the tapping with your unaffected hand or foot.','Your friend speeds up and slows down – keep copying.','If the tremor changes with the rhythm, slow the rhythm right down, and see if the tremor slows or stops with it.'],
    tip:'Alone? Try finger-to-thumb tapping on your other hand at different speeds.'},
   {id:'pmr', cats:['tremor','fatigue','seizure'], title:'Tense and release (muscle relaxation)', mins:5, src:['trem','niel'],
    why:'Functional tremor often comes from tensing many muscles at once. Learning to contract and then relax helps you regain control.',
-   steps:['Get comfortable, sitting or lying.','Make a fist and tense your forearm for about 5 seconds.','Let it go completely. Notice the difference for 10 seconds.','Move on: upper arm, shoulders, face, then legs and feet.','Finish with a few slow breaths.'],
+   steps:['Get comfortable, sitting or lying.','Make a fist and tense your forearm for about 5 seconds.','Relax those muscles completely. For 10 seconds, notice how relaxed feels different from tense.','Move on: upper arm, shoulders, face, then legs and feet.','Finish with a few slow breaths.'],
    tip:'Tense gently – it should never hurt.'},
   {id:'weightshift-still', cats:['tremor','gait'], title:'Sway to stillness', mins:2, src:['niel'],
    why:'The physio consensus suggests slow weight shifting, then gradually shifting to stillness, for tremor in standing or the legs.',
-   steps:['Stand with feet hip-width apart, holding a table or counter if you need to.','Shift your weight slowly from side to side.','Then try forward and back.','As things settle, make the sways smaller and slower…','…until you come to rest, evenly balanced on both feet.'],
+   steps:['Stand with feet hip-width apart, holding a table or counter if you need to.','Shift your weight slowly from side to side.','Then try forward and back.','As the shaking gets less, make the movements smaller and slower…','…until you come to rest, evenly balanced on both feet.'],
    tip:'Stand near something sturdy. Stop and sit if you feel unsteady.'},
   {id:'mirror', cats:['tremor','weakness'], title:'Mirror practice', mins:3, src:['trem','niel'],
    why:'Watching yourself in a mirror gives your brain feedback about where things are going wrong, and can take attention off body sensations.',
@@ -151,36 +151,36 @@ const EX = [
    tip:'Short, regular sessions are better than one long one.'},
   {id:'even-stand', cats:['tremor','gait'], title:'Even standing check', mins:1, src:['niel'],
    why:'Spreading weight evenly through both feet supports more normal posture and can settle leg tremor.',
-   steps:['Stand with feet hip-width apart, near support.','Notice which foot carries more weight.','Gently even it out – imagine standing on two bathroom scales showing the same number.','Use a mirror if helpful.','Hold for a few relaxed breaths.'],
-   tip:'Two cheap bathroom scales make this a great practice tool.'},
-  {id:'busy-not-resting', cats:['tremor','seizure'], title:'Swap “resting and noticing” for doing', mins:0, src:['trem','seiz'],
+   steps:['Stand with feet hip-width apart, near support.','Notice which foot carries more weight.','Slowly move your weight until both feet carry the same amount (if you stood on two bathroom scales, they would show the same number).','Use a mirror if helpful.','Hold for a few relaxed breaths.'],
+   tip:'You can practise this by standing on two bathroom scales, one under each foot.'},
+  {id:'busy-not-resting', cats:['tremor','seizure'], title:'Do an activity instead of sitting and watching your symptoms', old:'Swap “resting and noticing” for doing', mins:0, src:['trem','seiz'],
    why:'Tremor and attacks are often worse when sitting still and paying attention to your body. A light, absorbing task gives the brain something else to do.',
-   steps:['Notice when you are sitting or lying and “scanning” your body.','Pick something absorbing: a phone game, a puzzle, a podcast, folding laundry, chatting.','Give it your attention for a few minutes.','Notice how symptoms change when your attention is elsewhere.'],
-   tip:'This isn\u2019t about ignoring symptoms forever – just giving your brain a break from monitoring.'},
-  {id:'tremor-episodes', cats:['tremor'], title:'If tremor comes in “bouts”', mins:0, src:['trem','seiz'],
-   why:'Some people get tremor episodes that start with spaced-out (dissociative) feelings. The same warning-sign skills used for seizures can help.',
-   steps:['Start noticing what comes before a bout: feeling spaced out, tense, dizzy, hot?','When you notice it, use a grounding exercise (5-4-3-2-1) or hard counting.','Log it in the tracker afterwards – patterns help you and your doctor.'],
+   steps:['Notice when you are sitting or lying still and checking your body for symptoms.','Pick something absorbing: a phone game, a puzzle, a podcast, folding laundry, chatting.','Give it your attention for a few minutes.','Notice how symptoms change when your attention is elsewhere.'],
+   tip:'This does not mean ignoring your symptoms all the time. It means spending a few minutes not checking for symptoms.'},
+  {id:'tremor-episodes', cats:['tremor'], title:'If your tremor comes and goes in episodes', old:'If tremor comes in “bouts”', mins:0, src:['trem','seiz'],
+   why:'Some people have tremor episodes that start with feeling detached or unreal (dissociation). The same warning-sign skills used for seizures can help.',
+   steps:['Start noticing what happens just before an episode: do you feel detached or unreal, tense, dizzy, or hot?','When you notice it, use a grounding exercise (5-4-3-2-1) or hard counting.','Log it in the tracker afterwards – patterns help you and your doctor.'],
    tip:'Talk this through with your neurologist or physio – it\u2019s useful information for them.'},
-  {id:'jerks', cats:['tremor'], title:'Jerks: catch the “build-up” feeling', mins:0, src:['niel'],
-   why:'For sudden jerks, the consensus advice is to look for the feeling or body-focus just before a jerk, and redirect attention.',
-   steps:['Notice what happens just before a jerk – an urge, tension, focusing on a body part?','When you notice it, shift attention outwards: name things you can see, start a task, talk to someone.','Gently release any tension in the area.'],
+  {id:'jerks', cats:['tremor'], title:'Jerks: notice the feeling just before a jerk', old:'Jerks: catch the “build-up” feeling', mins:0, src:['niel'],
+   why:'For sudden jerks, the consensus advice is to notice the feeling just before a jerk (or noticing that you are focusing on one part of your body), and then move your attention to something else.',
+   steps:['Notice what happens just before a jerk – an urge, tension, focusing on a body part?','When you notice it, move your attention to things outside your body: name things you can see, start a task, or talk to someone.','Gently release any tension in the area.'],
    tip:''},
 
   // ---------- SEIZURE ----------
   {id:'g54321', cats:['seizure','fog'], title:'5-4-3-2-1 grounding', mins:2, src:['nhsg','hope'],
-   why:'Grounding pulls your attention into the present using your senses, which can help when you feel spaced out or an attack building.',
+   why:'Grounding uses your senses (seeing, hearing, touch, smell, taste) to bring your attention to what is around you right now. It can help when you feel detached or unreal, or feel that a seizure may start.',
    steps:['Take one slow breath.','Name 5 things you can SEE.','Name 4 things you can FEEL (feet on the floor, your clothes…).','Name 3 things you can HEAR.','Name 2 things you can SMELL.','Name 1 thing you can TASTE.'],
    tip:'Practise when you feel calm, so it comes easily when you need it (FND Hope).'},
   {id:'count7', cats:['seizure'], title:'Hard counting', mins:1, src:['seiz','hope'],
-   why:'A task that genuinely takes effort can stop the warning sensations taking over your attention.',
-   steps:['Count backwards from 100 in sevens: 100, 93, 86, 79…','Too hard right now? Try fours (100, 96, 92…) or threes.','Or say the alphabet backwards.','Keep going until the wave passes.'],
+   why:'A task that takes real effort can help you pay less attention to the warning feelings.',
+   steps:['Count backwards from 100 in sevens: 100, 93, 86, 79…','Too hard right now? Try fours (100, 96, 92…) or threes.','Or say the alphabet backwards.','Keep going until the warning feeling goes away.'],
    tip:'It needs to be quite difficult to work as a distraction.'},
   {id:'calm-breath', cats:['seizure','fatigue','tremor'], title:'Calm belly breathing', mins:5, src:['nhsb','act','seiz'],
-   why:'Fast, shallow breathing (hyperventilation) can feed warning symptoms. Slow belly breathing helps the "red alert" settle.',
-   steps:['Sit with your back supported, feet flat.','Let your breath flow down into your belly, without forcing it.','Breathe in gently through your nose, counting 1 to 5.','Breathe out gently through your mouth, counting 1 to 5.','Keep going for a few minutes. Follow the circle below.'],
+   why:'Fast, shallow breathing (hyperventilation) can make warning symptoms stronger. Slow belly breathing helps your body\u2019s stress response calm down.',
+   steps:['Sit with your back supported, feet flat.','Breathe so that your belly moves out when you breathe in. Do not force it.','Breathe in gently through your nose, counting 1 to 5.','Breathe out gently through your mouth, counting 1 to 5.','Keep going for a few minutes. Follow the circle below.'],
    tip:'You may not reach 5 at first – that\u2019s fine.', breath:true},
   {id:'sensory-kit', cats:['seizure'], title:'Strong sensation grounding', mins:0, src:['hope'],
-   why:'A strong, clear sensation can "wake up" your senses and anchor you in your body.',
+   why:'A strong, clear feeling (cold, sour, a strong smell) can help you notice your body and your surroundings again.',
    steps:['Grip something cold (ice cube, cold can).','Bite into something sour (a sour sweet, lemon).','Smell something strong (essential oil, coffee).','Run cool water over your hands, or put a cool cloth on your face.','Squeeze your fist tightly, then release. Repeat.'],
    tip:'Keep a small grounding kit in your bag: a sour sweet, a smooth stone, a scent.'},
   {id:'distract', cats:['seizure'], title:'Talk, sing, play', mins:0, src:['seiz'],
@@ -188,34 +188,34 @@ const EX = [
    steps:['Talk to someone nearby – about anything.','Sing a favourite song (out loud or in your head).','Play a game on your phone.','Pick up a magazine and start reading.'],
    tip:''},
   {id:'thoughts', cats:['seizure'], title:'Answer the scary thoughts', mins:0, src:['seiz'],
-   why:'Alarming thoughts during warning signs fuel the "fight or flight" response. Knowing the answers can lower the alarm.',
-   steps:['"Am I losing it?" – No. You are losing control temporarily, not going mad.','"Is this epilepsy?" – No. If unsure why not, ask your doctor.','"Might I die?" – No, this has never happened.','"Will it be embarrassing?" – Perhaps a bit, but it is not worth giving up the things you love.','Say to yourself: "This is the warning feeling. It\u2019s my nervous system on red alert. It will pass."'],
+   why:'Frightening thoughts during warning signs make the body\u2019s "fight or flight" stress response stronger. Knowing the answers to these thoughts can help you feel less afraid.',
+   steps:['"Am I losing my mind?" – No. You are losing control of your body for a short time. You are not going mad.','"Is this epilepsy?" – No. If unsure why not, ask your doctor.','"Might I die?" – No, this has never happened.','"Will it be embarrassing?" – Perhaps a bit, but it is not worth giving up the things you love.','Say to yourself: "This is the warning feeling. My nervous system is reacting as if there is danger. It will stop."'],
    tip:'Fewer, less alarming warnings – or longer warnings – are signs of progress.'},
   {id:'warning-map', cats:['seizure'], title:'Learn your warning signs', mins:0, src:['seiz','diss'],
-   why:'Most people get some warning before at least some attacks. Learning to spot it is a key step towards control.',
-   steps:['Common warning signs: racing heart, chest tightness, short of breath, sweating, tingling, dizziness, hot or cold, feeling spaced out or unreal, feeling of losing control.','After an attack, jot down what you noticed beforehand (the tracker\u2019s "trigger" field works well).','Ask people close to you what they notice – they sometimes see a warning you don\u2019t remember.','Notice situations: resting doing nothing, crowds, upsetting memories, medical appointments.'],
-   tip:'Spaced-out, unreal feelings (dissociation) are common and not dangerous, though they feel scary.'},
+   why:'Most people get some warning before at least some attacks. Learning to notice the warning is an important step in learning to control attacks.',
+   steps:['Common warning signs: racing heart, chest tightness, short of breath, sweating, tingling, dizziness, hot or cold, feeling detached or unreal, feeling of losing control.','After an attack, write down what you noticed beforehand (the tracker\u2019s "trigger" field works well).','Ask people close to you what they notice – they sometimes see a warning you don\u2019t remember.','Notice situations: resting doing nothing, crowds, upsetting memories, medical appointments.'],
+   tip:'Feeling detached or unreal (dissociation) is common and not dangerous, though it feels scary.'},
 
   // ---------- GAIT ----------
   {id:'rhythm-walk', cats:['gait','weakness'], title:'Walk to a beat', mins:3, src:['gait','niel'],
    why:'Rhythm and music help walking become automatic instead of effortful.',
-   steps:['Put on music with a steady beat – or hum a tune in your head.','Walk in time to the beat.','Or count: "1, 2, 1, 2…"','Notice whether walking feels easier.'],
+   steps:['Put on music with a steady beat – or hum a tune.','Walk in time to the beat.','Or count: "1, 2, 1, 2…"','Notice whether walking feels easier.'],
    tip:'Walk somewhere safe and clear, with support nearby if you need it.'},
   {id:'backwards', cats:['gait'], title:'Walk backwards or sideways', mins:2, src:['gait','niel'],
-   why:'Walking backwards is a different "programme" in the brain and is often easier – a way to feel more automatic movement.',
+   why:'The brain controls walking backwards differently from walking forwards, so it is often easier. It can help you feel what automatic movement is like.',
    steps:['Choose a clear hallway, ideally with a wall or rail to touch.','Take a few slow steps backwards.','Try sideways steps too.','Then turn and try a few steps forwards, keeping the same relaxed feeling.'],
-   tip:'Have someone with you the first few times. Not for everywhere – just practice!'},
-  {id:'start-shift', cats:['gait'], title:'Stuck? Shift, then go', mins:0, src:['gait','niel'],
-   why:'If you can\u2019t get started, a few side-to-side weight shifts often unlock the first step.',
+   tip:'Have someone with you the first few times. Only do this as practice in a safe place, not as your normal way of walking.'},
+  {id:'start-shift', cats:['gait'], title:'Can\u2019t start walking? Shift your weight first', old:'Stuck? Shift, then go', mins:0, src:['gait','niel'],
+   why:'If you cannot start walking, moving your weight from side to side a few times often helps you take the first step.',
    steps:['Stand still with support nearby.','Shift your weight from side to side for a few seconds.','Let your feet "automatically" move forward a little with each shift.','Gradually lengthen the steps into walking.'],
    tip:''},
-  {id:'skate', cats:['gait'], title:'Ice-skater slide', mins:2, src:['gait','niel'],
+  {id:'skate', cats:['gait'], title:'Sliding steps (like ice skating)', old:'Ice-skater slide', mins:2, src:['gait','niel'],
    why:'Sliding the feet keeps them in contact with the floor and can make walking feel smoother.',
-   steps:['On a smooth floor in socks (carefully!), stand near support.','Slide one foot forward as if ice skating, keeping it on the floor.','Then the other.','Notice if walking feels more natural afterwards.'],
+   steps:['On a smooth floor in socks (carefully!), stand near support.','Slide one foot forward along the floor, keeping it touching the floor the whole time.','Then the other.','Notice if walking feels more natural afterwards.'],
    tip:'Only on a safe, clear surface.'},
   {id:'ball', cats:['gait','weakness'], title:'Balloon or ball play', mins:3, src:['trem','phys'],
-   why:'Focusing on a ball or balloon moves attention off your legs, letting automatic movement through.',
-   steps:['Gently bounce a balloon up and keep it in the air, or kick a soft ball.','Keep your eyes on the ball, not your body.','Have fun with it – play is the point.'],
+   why:'Paying attention to a ball or balloon takes your attention away from your legs, so they can move more automatically.',
+   steps:['Gently bounce a balloon up and keep it in the air, or kick a soft ball.','Keep your eyes on the ball, not your body.','Try to enjoy it – the aim is to play, not to exercise.'],
    tip:''},
   {id:'dance', cats:['gait','tremor'], title:'Bring back a movement you love', mins:3, src:['gait','trem'],
    why:'Movements you learned and enjoyed before (dance, sport) can help your brain find natural movement again.',
@@ -226,13 +226,13 @@ const EX = [
   {id:'both-sides', cats:['weakness'], title:'Move both sides together', mins:3, src:['limb','niel'],
    why:'Automatic movements using both arms or both legs together tend to work better than straining with the weak limb alone.',
    steps:['Choose a two-sided movement: clapping, folding a towel, pedalling while seated, catching a ball with two hands.','Focus on the task, not the weak limb.','Repeat for a few minutes.'],
-   tip:'The more you try hard to move a weak limb, the heavier it can feel. Let it come along for the ride.'},
+   tip:'The harder you try to move a weak limb, the heavier it can feel. Let it move along with the other side without trying hard.'},
   {id:'target', cats:['weakness','gait'], title:'Look at the goal, not the limb', mins:0, src:['phys','niel'],
    why:'Focusing on a target outside your body (a spot ahead, a ball) lets movement happen more automatically.',
-   steps:['Pick a target: a spot on the wall ahead, a cup to reach for, a ball to kick.','Keep your eyes and attention on the target.','Move towards it without "checking" the limb.'],
+   steps:['Pick a target: a spot on the wall ahead, a cup to reach for, a ball to kick.','Keep your eyes and attention on the target.','Move towards it without looking at the limb.'],
    tip:''},
   {id:'hands-weight', cats:['weakness'], title:'Lean through your hands', mins:2, src:['niel'],
-   why:'Bearing weight through your hands, then shifting it, can switch on arm muscles automatically.',
+   why:'Putting your weight on your hands, then moving it from hand to hand, can make your arm muscles work automatically.',
    steps:['Stand at a sturdy table with both hands resting flat on it.','Slowly lean your weight onto your hands.','Shift your weight gently from one hand to the other.','Relax and repeat.'],
    tip:''},
   {id:'posture', cats:['weakness','tremor'], title:'Reset to a natural posture', mins:0, src:['limb','trem'],
@@ -241,27 +241,27 @@ const EX = [
    tip:'The normal position may feel odd at first. That feeling fades with practice.'},
 
   // ---------- FATIGUE ----------
-  {id:'petrol', cats:['fatigue','fog'], title:'Leave petrol in the tank', mins:0, src:['phys','cog'],
-   why:'Doing loads on good days and crashing afterwards ("boom and bust") keeps fatigue going.',
-   steps:['On a good day, choose a modest task – a short walk, one small job.','Make it less than your best day, but more than your worst.','Stop before you feel wiped out.','Note how you feel the next day.'],
+  {id:'petrol', cats:['fatigue','fog'], title:'Stop before you get too tired', old:'Leave petrol in the tank', mins:0, src:['phys','cog'],
+   why:'Doing a lot on good days and then being exhausted afterwards keeps fatigue going. (This is sometimes called "boom and bust".)',
+   steps:['On a good day, choose a modest task – a short walk, one small job.','Make it less than your best day, but more than your worst.','Stop before you feel very tired.','Note how you feel the next day.'],
    tip:'Activity may make symptoms worse for a while, but slowly increasing it does not cause damage.'},
   {id:'bad-day', cats:['fatigue'], title:'Bad-day minimum', mins:0, src:['phys'],
-   why:'Even on bad days, a small baseline keeps you moving forward.',
+   why:'Even on bad days, doing a small, fixed amount helps you keep making progress.',
    steps:['Get out of bed.','Get dressed.','If you can, step outside for a few minutes.','That\u2019s enough. Be kind to yourself.'],
    tip:''},
   {id:'same-level', cats:['fatigue'], title:'Same level, every day', mins:0, src:['phys'],
    why:'Keeping activity steady for a few weeks often makes it slowly feel easier.',
-   steps:['Pick a level of activity you can manage on most days.','Do roughly the same each day for a few weeks.','When it feels a little easier, increase it slightly.','Expect ups and downs – look at the overall trend.'],
+   steps:['Pick a level of activity you can manage on most days.','Do roughly the same each day for a few weeks.','When it feels a little easier, increase it slightly.','Expect good days and bad days – look at how things change over several weeks, not one day.'],
    tip:'A physio or OT can help design a graded plan with you.'},
 
   // ---------- FOG ----------
   {id:'sleep', cats:['fog','fatigue'], title:'Sleep routine basics', mins:0, src:['sleep','cog'],
    why:'Poor sleep makes fatigue and concentration worse.',
-   steps:['Go to bed and get up at about the same time every day.','Keep the bedroom quiet, dark and comfortable.','Cut down caffeine, especially in the evening.','Wind down: warm bath, quiet music, gentle stretching.','Write tomorrow\u2019s worries on a list before bed.','Can\u2019t sleep? Get up and do something relaxing, then try again.'],
-   tip:'Like walking, sleep works best when automatic – trying too hard can backfire.'},
+   steps:['Go to bed and get up at about the same time every day.','Keep the bedroom quiet, dark and comfortable.','Cut down caffeine, especially in the evening.','Before bed, do calm things: a warm bath, quiet music, gentle stretching.','Write tomorrow\u2019s worries on a list before bed.','Can\u2019t sleep? Get up and do something relaxing, then try again.'],
+   tip:'Like walking, sleep works best when it happens automatically – trying too hard to sleep can make it harder.'},
   {id:'use-memory', cats:['fog'], title:'Keep using your memory', mins:0, src:['cog'],
    why:'Avoiding tasks and relying on lots of lists can keep memory confidence low.',
-   steps:['Choose one small task you\u2019ve been avoiding (e.g. a short shopping list from memory).','Give it a go – a few mistakes are fine.','Gradually use fewer reminders where you can.'],
+   steps:['Choose one small task you\u2019ve been avoiding (e.g. a short shopping list from memory).','Try it – a few mistakes are fine.','Gradually use fewer reminders where you can.'],
    tip:'Some memory aids are fine – just try not to rely on them completely.'},
   {id:'lapses', cats:['fog'], title:'Lapses are normal', mins:0, src:['cog'],
    why:'Everyone forgets names or walks into a room and forgets why. Harsh thoughts about lapses make symptoms worse.',
@@ -277,6 +277,36 @@ const LS = {
 const favs = () => LS.get('favs', []);
 const logs = () => LS.get('log', []);
 const contact = () => LS.get('contact', {name:'', phone:''});
+// Optional name used in the greeting and the pre-written text message. Blank = neutral wording.
+const myName = () => { const p = LS.get('profile', null); return p && typeof p.name === 'string' ? p.name.trim() : ''; };
+function smsText(){
+  const n = myName();
+  return (n ? `Hi, it's ${n}. ` : 'Hi. ') + "I'm having FND warning signs and using my grounding steps. Could you check on me?";
+}
+// One-time name prompt, only for people who used the app before the name setting existed.
+const hasOldData = () => { try { return ['log','favs','contact','emergency'].some(k => localStorage.getItem('fndc.'+k) !== null); } catch(e){ return false; } };
+(function initNamePrompt(){
+  try {
+    if (localStorage.getItem('fndc.namePromptDone') !== null || localStorage.getItem('fndc.profile') !== null) return;
+    if (!hasOldData()) LS.set('namePromptDone', true); // brand-new user: they can add a name in About
+  } catch(e){}
+})();
+function namePromptHTML(){
+  if (LS.get('namePromptDone', false) || myName()) return '';
+  return `<div class="card" id="nameprompt" style="border:2px solid var(--brand)">
+    <h3 style="margin-top:0">Add your name</h3>
+    <p>Add your name so your emergency text says who it\u2019s from.</p>
+    <label for="npname">Your name (optional)</label><input id="npname" autocomplete="given-name" placeholder="e.g. Sam">
+    <div class="row" style="margin-top:12px"><button class="btn" onclick="saveNamePrompt()">Save</button><button class="btn ghost" onclick="skipNamePrompt()">Skip</button></div>
+    <p class="muted small" style="margin-top:8px">Stored only on this phone. You can change it any time in About.</p></div>`;
+}
+function saveNamePrompt(){
+  const v = $('#npname').value.trim();
+  if (!v){ toast('Type your name, or tap Skip'); return; }
+  LS.set('profile', {name: v}); LS.set('namePromptDone', true); home(); toast('Saved ✓');
+}
+function skipNamePrompt(){ LS.set('namePromptDone', true); const el = $('#nameprompt'); if (el) el.remove(); toast('OK. You can add your name in About'); }
+function saveName(){ LS.set('profile', {name: $('#myname').value.trim()}); LS.set('namePromptDone', true); about(); toast('Saved ✓'); }
 
 // ---------- emergency number by country ----------
 const EMERG = {
@@ -383,13 +413,14 @@ function home(){
   const h = new Date().getHours();
   const greet = h < 12 ? 'Good morning' : h < 18 ? 'Good afternoon' : 'Good evening';
   app.innerHTML = `
-  <p class="muted">${greet}, Kaleb. Go gently – small steps count.</p>
-  <button class="sos" onclick="location.hash='#/sos'"><b>🛟 I feel one coming</b>Step-by-step grounding, one thing at a time</button>
+  <p class="muted">${greet}${myName() ? ', ' + esc(myName()) : ''}. Take things slowly. Small improvements matter.</p>
+  ${namePromptHTML()}
+  <button class="sos" onclick="location.hash='#/sos'"><b>🛟 I feel a seizure starting</b>Step-by-step grounding, one step at a time</button>
   <div class="row" style="margin:10px 0">
     <button class="btn alt" onclick="quickLog('tremor')">〰️ Log tremor</button>
     <button class="btn alt" onclick="quickLog('seizure')">🛟 Log seizure</button>
   </div>
-  <h2>Your main symptoms</h2>
+  <h2>Tremor and seizures</h2>
   ${CATS.filter(c=>c.primary).map(c => `<button class="tile big" onclick="location.hash='#/cat/${c.id}'"><span class="ic">${c.icon}</span><span><span class="t">${c.name}</span><br><span class="d">${c.blurb}</span></span></button>`).join('')}
   <button class="btn" style="margin-top:14px" onclick="location.hash='#/suggest'">✨ Suggest an exercise for me</button>
   <h3 class="muted" style="margin-top:22px">Other symptoms</h3>
@@ -405,7 +436,7 @@ function category(id){
   const list = EX.filter(e => e.cats.includes(id));
   const f = favs();
   app.innerHTML = `<p class="muted">${c.blurb}</p>
-  ${id==='seizure' ? `<button class="sos" onclick="location.hash='#/sos'"><b>🛟 I feel one coming</b>Start the guided grounding routine</button>
+  ${id==='seizure' ? `<button class="sos" onclick="location.hash='#/sos'"><b>🛟 I feel a seizure starting</b>Start the guided grounding steps</button>
      <button class="btn ghost" onclick="location.hash='#/others'">🤝 Show people nearby what to do</button>` : ''}
   <button class="btn alt" style="margin-top:10px" onclick="location.hash='#/suggest/${id}'">✨ Pick one for me</button>
   ${list.map(e => `<button class="ex" onclick="location.hash='#/ex/${e.id}'"><span class="t">${f.includes(e.id)?'⭐ ':''}${esc(e.title)}</span>${e.mins?`<span class="pill">${e.mins} min</span>`:''}</button>`).join('')}
@@ -464,7 +495,7 @@ function suggest(){
   header('Suggest an exercise', true); setTab('t-home');
   app.innerHTML = `<h2>What\u2019s bothering you most right now?</h2>
   ${CATS.map(c => `<button class="tile ${c.primary?'big':''}" onclick="suggestFrom('${c.id}')"><span class="ic">${c.icon}</span><span class="t">${c.name}</span></button>`).join('')}
-  <button class="tile" onclick="suggestFrom('any')"><span class="ic">🎲</span><span class="t">Surprise me</span></button>`;
+  <button class="tile" onclick="suggestFrom('any')"><span class="ic">🎲</span><span class="t">Pick any exercise for me</span></button>`;
 }
 let lastSuggest = null;
 function suggestFrom(cat){
@@ -478,17 +509,17 @@ function suggestFrom(cat){
 
 // ---------- SOS grounding ----------
 const SOS = [
-  {t:'You noticed a warning sign. That\u2019s a real skill.<br>Let\u2019s ground together.', s:'If you can, sit or lie down somewhere safe.'},
-  {t:'This is your nervous system on “red alert”.<br>It feels awful, but it will pass.', s:'You are not in danger. You are not going mad.'},
+  {t:'You noticed a warning sign. That\u2019s a real skill.<br>Let\u2019s do the grounding steps together.', s:'If you can, sit or lie down somewhere safe.'},
+  {t:'Your nervous system is reacting as if there is danger.<br>It feels awful, but it will stop.', s:'You are not in danger. You are not going mad.'},
   {t:'Breathe slowly into your belly.', s:'In for 1-2-3-4-5… out for 1-2-3-4-5', breath:true},
-  {t:'Feet flat. Press them into the floor.', s:'Feel the floor holding you up.'},
+  {t:'Feet flat. Press them into the floor.', s:'Notice the floor under your feet.'},
   {t:'Name <b>5</b> things you can <b>see</b>.', s:'Say them out loud if you can.'},
   {t:'Name <b>4</b> things you can <b>feel</b>.', s:'Your clothes, the chair, your hands…'},
   {t:'Name <b>3</b> things you can <b>hear</b>.', s:''},
   {t:'Name <b>2</b> things you can <b>smell</b>.', s:'Or grip something cold, or bite something sour.'},
   {t:'Name <b>1</b> thing you can <b>taste</b>.', s:''},
   {t:'Count backwards from 100 in sevens.', s:'100… 93… 86… 79… (fours or threes is fine too)'},
-  {t:'Still here? Keep going – talk to someone, sing a song, or play a game on your phone.', s:'Each time you ride out a warning, you\u2019re building control.'}
+  {t:'Still feeling warning signs? Keep going – talk to someone, sing a song, or play a game on your phone.', s:'Each time you get through a warning, you are practising control.'}
 ];
 function sos(){
   header('Grounding', true); setTab('t-home'); sosStep = 0; drawSos();
@@ -505,18 +536,18 @@ function drawSos(){
       ${sosStep>0 ? `<button class="btn ghost" onclick="sosStep--;drawSos()">‹ Back</button>` : ''}
       ${last ? `<button class="btn" onclick="sosDone()">I\u2019m OK now</button>` : `<button class="btn" onclick="sosStep++;drawSos()">Next ›</button>`}
     </div>
-    ${c.phone ? `<div class="row" style="margin-top:10px"><a class="btn warm" href="${smsLink(c.phone)}">💬 Text ${esc(c.name||'my person')}</a><a class="btn alt" href="tel:${esc(c.phone)}">📞 Call</a></div>` : ''}
+    ${c.phone ? `<div class="row" style="margin-top:10px"><a class="btn warm" href="${smsLink(c.phone)}">💬 Text ${esc(c.name||'my support person')}</a><a class="btn alt" href="tel:${esc(c.phone)}">📞 Call</a></div>` : ''}
     <button class="btn ghost" style="margin-top:10px" onclick="location.hash='#/others'">🤝 Show people nearby what to do</button>
   </div>`;
   if (st.breath){ const el=$('#breath'); let inhale=true; const tick=()=>{el.classList.toggle('in',inhale); el.textContent=inhale?'In…':'Out…'; inhale=!inhale;}; tick(); breathInt=setInterval(tick,5000); }
 }
 function smsLink(phone){
-  const body = encodeURIComponent("Hi, it's Kaleb. I'm having FND warning signs and using my grounding steps. Could you check on me?");
+  const body = encodeURIComponent(smsText());
   return `sms:${phone.replace(/[^\d+]/g,'')}?body=${body}`;
 }
 function sosDone(){
   stopTimers(); header('Well done', true);
-  app.innerHTML = `<div class="card"><h2>Well done for riding that out 🌿</h2>
+  app.innerHTML = `<div class="card"><h2>Well done for getting through that 🌿</h2>
   <p>Take a moment. Have some water, and rest if you need to.</p>
   <p class="muted">Would you like to log it? Noticing warnings – and ones that didn\u2019t become a seizure – is a sign of progress.</p>
   <button class="btn" onclick="quickLog('warning')">🌤️ Log: warning only, no seizure</button>
@@ -534,7 +565,7 @@ function others(){
     <li>Give me space and move hard objects away.</li>
     <li>Do <b>not</b> put anything in my mouth.</li>
     <li>Wait for it to settle. Part of me can often hear you, so speak calmly.</li>
-    <li>Afterwards, encourage me to get back up and carry on if I can.</li>
+    <li>Afterwards, encourage me to get up and continue what I was doing, if I can.</li>
   </ol>
   <h3>Call ${esc(emergency().num)} (emergency) if:</h3>
   <p>I\u2019m injured, I have trouble breathing, it\u2019s very different from my usual episodes, or you\u2019re unsure.</p>
@@ -548,10 +579,10 @@ function newTo(){
   header('New to FND?', true); setTab('t-home');
   app.innerHTML = `<div class="card">
   <h2 style="margin-top:0">You\u2019re not alone 🌱</h2>
-  <p>Functional Neurological Disorder (FND) is common. It\u2019s a problem with how the nervous system <b>works</b>, rather than damage to it – often described as a “software” problem rather than a “hardware” one.</p>
-  <p>Your symptoms are real, not imagined, and not your fault. Because the wiring isn\u2019t damaged, symptoms can improve – sometimes a lot.</p>
-  <p>Recovery usually comes from understanding the diagnosis and retraining the brain with support: physiotherapy, psychological therapy, and self-management skills like the ones in this app.</p>
-  <p>Ups and downs are normal. Bad days don\u2019t erase progress.</p></div>
+  <p>Functional Neurological Disorder (FND) is common. It\u2019s a problem with how the nervous system <b>works</b>. The nervous system is not damaged.</p>
+  <p>Your symptoms are real, not imagined, and not your fault. Because the nervous system is not damaged, symptoms can improve – sometimes a lot.</p>
+  <p>Recovery usually comes from understanding the diagnosis and practising, with support, to help the brain work normally again: physiotherapy, psychological therapy, and self-management skills like the ones in this app.</p>
+  <p>Good days and bad days are normal. A bad day does not mean you have lost your progress.</p></div>
   <h3>Trusted places to learn more</h3>
   <a class="ex" href="https://neurosymptoms.org/" target="_blank" rel="noopener"><span class="t">neurosymptoms.org – FND Guide by neurologist Prof Jon Stone</span></a>
   <a class="ex" href="https://neurosymptoms.org/en/treatment/understanding-fnd/" target="_blank" rel="noopener"><span class="t">Understanding FND (neurosymptoms.org)</span></a>
@@ -610,7 +641,7 @@ function editLog(id){
   <label>How long?</label><div class="seg" id="dur">${DURS.map(d=>`<button data-v="${d}" class="${e.dur===d?'on':''}" style="font-size:15px">${d}</button>`).join('')}</div>
   <label for="trig">Possible trigger</label><input id="trig" value="${esc(e.trig||'')}" placeholder="e.g. resting, stress">
   <div class="chips">${TRIGS.map(t=>`<button onclick="addTrig('${t}')">${t}</button>`).join('')}</div>
-  <label for="helped">What helped?</label><select id="helped"><option value="">—</option><option ${e.helped==='Nothing / didn\u2019t try'?'selected':''}>Nothing / didn\u2019t try</option>${EX.map(x=>`<option ${e.helped===x.title?'selected':''}>${esc(x.title)}</option>`).join('')}</select>
+  <label for="helped">What helped?</label><select id="helped"><option value="">—</option><option ${e.helped==='Nothing / didn\u2019t try'?'selected':''}>Nothing / didn\u2019t try</option>${EX.map(x=>`<option ${(e.helped===x.title||(x.old&&e.helped===x.old))?'selected':''}>${esc(x.title)}</option>`).join('')}${e.helped && e.helped!=='Nothing / didn\u2019t try' && !EX.some(x=>x.title===e.helped||x.old===e.helped) ? `<option selected>${esc(e.helped)}</option>` : ''}</select>
   <label for="note">Note</label><textarea id="note" placeholder="Anything you noticed">${esc(e.note||'')}</textarea>
   <button class="btn" style="margin-top:16px" onclick="saveLog('${id}')">Save details</button>
   <button class="btn ghost" style="margin-top:10px;color:var(--danger)" onclick="delLog('${id}')">Delete this entry</button></div>`;
@@ -658,7 +689,7 @@ function downloadCSV(){
 function saved(){
   header('Saved exercises'); setTab('t-saved');
   const f = favs().map(exById).filter(Boolean);
-  app.innerHTML = f.length ? `<p class="muted">Your go-to exercises, one tap away.</p>` + f.map(e => `<button class="ex" onclick="location.hash='#/ex/${e.id}'"><span class="t">⭐ ${esc(e.title)}</span>${e.mins?`<span class="pill">${e.mins} min</span>`:''}</button>`).join('')
+  app.innerHTML = f.length ? `<p class="muted">Exercises you saved. Tap one to open it.</p>` + f.map(e => `<button class="ex" onclick="location.hash='#/ex/${e.id}'"><span class="t">⭐ ${esc(e.title)}</span>${e.mins?`<span class="pill">${e.mins} min</span>`:''}</button>`).join('')
     : `<div class="card"><p>Nothing saved yet.</p><p class="muted">Tap ☆ on any exercise that helps, and it will appear here.</p></div>`;
 }
 
@@ -679,12 +710,17 @@ function about(){
   </select>
   <div id="ecustomwrap" style="${em.code==='OTHER'?'':'display:none'}"><label for="ecustom">Your emergency number</label><input id="ecustom" type="tel" inputmode="tel" value="${esc(es.custom||'')}" placeholder="e.g. 112"></div>
   <button class="btn" style="margin-top:12px" onclick="saveEmergency()">Save</button></div>
+  <div class="card"><h3 style="margin-top:0">Your name</h3>
+  <p class="muted small">Optional. Used in the greeting and in the text message to your support person (\u201cHi, it\u2019s [your name]\u2026\u201d). If you leave it blank, the text starts with \u201cHi.\u201d Stored only on this phone.</p>
+  <label for="myname">Your name</label><input id="myname" autocomplete="given-name" value="${esc(myName())}" placeholder="e.g. Sam">
+  <p class="muted small" style="margin-top:8px">Text message preview: \u201c${esc(smsText())}\u201d</p>
+  <button class="btn" style="margin-top:12px" onclick="saveName()">Save</button></div>
   <div class="card"><h3 style="margin-top:0">Support person</h3>
   <p class="muted small">Adds “Text” and “Call” buttons to the grounding screen. Stored only on this phone.</p>
   <label for="cn">Name</label><input id="cn" value="${esc(c.name)}" placeholder="e.g. Mom">
   <label for="cp">Phone number</label><input id="cp" type="tel" inputmode="tel" value="${esc(c.phone)}" placeholder="e.g. 312 555 0123">
   <button class="btn" style="margin-top:12px" onclick="LS.set('contact',{name:$('#cn').value.trim(),phone:$('#cp').value.trim()});toast('Saved ✓')">Save</button></div>
-  <div class="card"><h3 style="margin-top:0">Your privacy</h3><p>Saved exercises, your symptom log, your support contact and your emergency number are kept only in this browser on this phone. Nothing is sent anywhere. Clearing browser data will erase them – export your log now and then.</p> <p><a href="privacy.html">Read the full privacy policy</a></p></div>
+  <div class="card"><h3 style="margin-top:0">Your privacy</h3><p>Saved exercises, your symptom log, your name, your support contact and your emergency number are kept only in this browser on this phone. Nothing is sent anywhere. Clearing browser data will erase them – export your log now and then.</p> <p><a href="privacy.html">Read the full privacy policy</a></p></div>
   <div class="card"><h3 style="margin-top:0">Add to home screen</h3><p class="small"><b>Android (Chrome):</b> tap ⋮ menu → <i>Install app</i> or <i>Add to Home screen</i>.<br><b>iPhone (Safari):</b> tap Share → <i>Add to Home Screen</i>.</p></div>
   <div class="card"><h3 style="margin-top:0">Sources</h3><div class="src">${Object.values(SRC).map(s=>`<a href="${s[1]}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join('<br>')}</div></div>`;
 }
@@ -710,7 +746,12 @@ function route(){
 }
 window.addEventListener('hashchange', route);
 route();
-if ('serviceWorker' in navigator && location.protocol !== 'file:') navigator.serviceWorker.register('sw.js').catch(()=>{});
+if ('serviceWorker' in navigator && location.protocol !== 'file:'){
+  // When a newer version takes over, reload once so the update shows straight away. Saved data (localStorage) is not touched.
+  const hadController = !!navigator.serviceWorker.controller; let reloaded = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadController && !reloaded){ reloaded = true; location.reload(); } });
+  navigator.serviceWorker.register('sw.js', {updateViaCache:'none'}).then(r => r.update()).catch(()=>{});
+}
 </script>
 </body>
 </html>
